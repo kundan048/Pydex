@@ -38,15 +38,24 @@ def fb_login(self):
         driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
     driver.get('https://www.facebook.com/')
 
-    user_id = driver.find_element_by_id('email')
+    user_id = driver.find_element_by_xpath('.//*[@id="email"]')
     user_id.send_keys(usr)
     sleep(2)
 
-    password = driver.find_element_by_id('pass')
+    password = driver.find_element_by_xpath('.//*[@id="pass"]')
     password.send_keys(pwd)
     sleep(2)
 
-    submit = driver.find_element_by_id('loginbutton')
+    submit = driver.find_element_by_xpath('.//*[@id="loginbutton"]')
     submit.click()
-    input('Enter anything to end the session: ')
-    driver.quit()
+
+    # driver.get("https://www.facebook.com/apoorvu")
+    post_box = driver.find_element_by_xpath('.//*[@name="xhpc_message"]')
+    sleep(4)
+
+    post_box.send_keys("Automated Post using Selenium")
+    sleep(4)
+
+    post_btn = driver.find_element_by_xpath('.//*[text()="Post"]')
+    post_btn.click()
+
