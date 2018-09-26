@@ -12,4 +12,4 @@ def chuck(jarvis, s):
     chuck_json = req.json()
 
     chuck_fact = chuck_json["value"]
-    jarvis.say(chuck_fact, Fore.RED)
+    jarvis.say(chuck_fact, Fore.BLUE)
